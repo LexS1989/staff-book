@@ -27,20 +27,24 @@ public class EmployeeService {
         if (employees.containsKey(getKey(checkFirstName, checkLastName))) {
             throw new EmployeeAlreadyAddedException();
         }
-        employees.put(getKey(checkFirstName, lastName), employee);
+        employees.put(getKey(checkFirstName, checkLastName), employee);
         return employee;
     }
 
     public Employee remove(String firstName, String lastName) {
-        if (employees.containsKey(getKey(firstName, lastName))) {
-            return employees.remove(getKey(firstName, lastName));
+        String checkFirstName = checkName(firstName);
+        String checkLastName = checkName(lastName);
+        if (employees.containsKey(getKey(checkFirstName, checkLastName))) {
+            return employees.remove(getKey(checkFirstName, checkLastName));
         }
         throw new EmployeeNotFoundException();
     }
 
     public Employee find(String firstName, String lastName) {
-        if (employees.containsKey(getKey(firstName, lastName))) {
-            return employees.get(getKey(firstName, lastName));
+        String checkFirstName = checkName(firstName);
+        String checkLastName = checkName(lastName);
+        if (employees.containsKey(getKey(checkFirstName, checkLastName))) {
+            return employees.get(getKey(checkFirstName, checkLastName));
         }
         throw new EmployeeNotFoundException();
     }

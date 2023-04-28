@@ -50,6 +50,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Ф.И.О сотрудника: " + firstName + lastName + "Отдел: " + department + "Зарплата: " + salary;
+        return "Ф.И.О сотрудника: " + firstName + " " + lastName + " Отдел: " + department + " Зарплата: " + salary;
     }
 }
